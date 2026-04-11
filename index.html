@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dijkstra — Rutas del Perú</title>
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <aside id="panel">
+
+    <div id="panel-header">
+      <h1>Dijkstra</h1>
+      <p class="subtitle">Ruta más corta entre ciudades del Perú</p>
+    </div>
+
+    <!-- Selección de ciudades -->
+    <div class="control-group">
+      <label for="select-origin">Origen</label>
+      <select id="select-origin">
+        <option value="">— selecciona ciudad —</option>
+      </select>
+    </div>
+
+    <div class="control-group">
+      <label for="select-dest">Destino</label>
+      <select id="select-dest">
+        <option value="">— selecciona ciudad —</option>
+      </select>
+    </div>
+
+    <div class="control-group">
+      <label for="speed-slider">
+        Velocidad de animación:
+        <span id="speed-label">Normal</span>
+      </label>
+      <input type="range" id="speed-slider" min="1" max="3" value="2" step="1" />
+    </div>
+
+    <div id="btn-group">
+      <button id="btn-run">Calcular ruta</button>
+      <button id="btn-reset" class="secondary">Limpiar</button>
+    </div>
+
+    <div id="result-box" class="hidden">
+      <div class="result-row">
+        <span class="result-label">Distancia total</span>
+        <span id="result-km" class="result-value">— km</span>
+      </div>
+      <div class="result-row">
+        <span class="result-label">Ciudades en ruta</span>
+        <span id="result-path" class="result-value">—</span>
+      </div>
+    </div>
+
+    <div id="log-box">
+      <p class="log-title">Pasos del algoritmo</p>
+      <ul id="log-list">
+        <li class="log-hint">Selecciona origen y destino para comenzar.</li>
+      </ul>
+    </div>
+
+    <!-- Leyenda -->
+    <div id="legend">
+      <div class="legend-item">
+        <span class="legend-dot origin"></span> Origen
+      </div>
+      <div class="legend-item">
+        <span class="legend-dot dest"></span> Destino
+      </div>
+      <div class="legend-item">
+        <span class="legend-dot visited"></span> Explorado
+      </div>
+      <div class="legend-item">
+        <span class="legend-dot path"></span> Ruta óptima
+      </div>
+    </div>
+
+  </aside>
+
+  <main id="map-container">
+    <div id="map"></div>
+  </main>
+
+
+  <script src="data.js"></script>
+
+  
+  <script src="app.js"></script>
+
+  <!-- Google Maps JavaScript API    -->
+  <script
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCDuMmqWtqnUmXaOuvJPOKj_9TGlpxcBN8&callback=initMap&language=es"
+    async defer>
+  </script>
+
+</body>
+</html>
